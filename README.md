@@ -7,3 +7,4 @@
 To learn more about codes and ai
 ## What I Want to Build
 A website
+##Collaborator: Yahir Hernandez i think a rule is that the prompt is actually doable 
