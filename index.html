@@ -5,14 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Tawsif Razzaki's Website</title>
     <style>
+      /* Light Mode (Default Variables) */
+      :root {
+        --bg-color: #f5f5f5;
+        --text-color: #333333;
+        --h1-color: #1F4E79;
+        --h2-color: #2E75B6;
+        --btn-bg: #1F4E79;
+        --btn-text: #ffffff;
+      }
+
+      /* Dark Mode Variables */
+      [data-theme="dark"] {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --h1-color: #4fa8ff;
+        --h2-color: #64b5f6;
+        --btn-bg: #ffffff;
+        --btn-text: #121212;
+      }
       body { font-family: Arial, sans-serif; max-width: 800px;
              margin: 0 auto; padding: 20px; background: #f5f5f5; }
       h1   { color: #1F4E79; }
       h2   { color: #2E75B6; border-bottom: 2px solid #2E75B6; }
       p    { line-height: 1.6; }
+      a { color: var(--h2-color); }
+
+      /* Toggle Button Styles */
+      .theme-toggle-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: var(--btn-bg);
+        color: var(--btn-text);
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        float: right; /* Places the button on the top right */
+      }
     </style>
   </head>
   <body>
+    </style>
+  </head>
+  <body>
+    <button class="theme-toggle-btn" id="themeToggle">Dark Mode</button>
     <h1>Hi, I'm [Tawsif Razzaki]!</h1>
  
     <h2>About Me</h2>
@@ -28,5 +65,25 @@
     <p>Check out my projects: 
       <a href="https://github.com/[Thegoat214]">[Thegoat214]</a>
     </p>
+  </body>
+</html>
+<script>
+      const toggleBtn = document.getElementById('themeToggle');
+      
+      toggleBtn.addEventListener('click', () => {
+        // Check current theme attribute
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        
+        if (currentTheme === 'dark') {
+          // Switch to light mode
+          document.documentElement.removeAttribute('data-theme');
+          toggleBtn.textContent = 'Dark Mode';
+        } else {
+          // Switch to dark mode
+          document.documentElement.setAttribute('data-theme', 'Light Mode');
+          toggleBtn.textContent = 'Light Mode';
+        }
+      });
+    </script>
   </body>
 </html>
