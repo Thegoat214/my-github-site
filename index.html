@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tawsif Razzaki's Website</title>
-    <style>    
+    <style>
+      
       :root {
         --bg-color: #f5f5f5;
         --text-color: #333333;
@@ -13,6 +14,8 @@
         --btn-bg: #1F4E79;
         --btn-text: #ffffff;
         --timer-bg: #e2e8f0;
+        --card-bg: #ffffff;
+        --border-color: #cccccc;
       }
 
       
@@ -24,6 +27,8 @@
         --btn-bg: #ffffff;
         --btn-text: #121212;
         --timer-bg: #1e1e1e;
+        --card-bg: #1e1e1e;
+        --border-color: #444444;
       }
 
       body { 
@@ -42,9 +47,10 @@
         opacity: 0;
       }
 
-      h2 { color: var(--h2-color); border-bottom: 2px solid var(--h2-color); }
+      h2 { color: var(--h2-color); border-bottom: 2px solid var(--h2-color); padding-bottom: 5px; }
       p  { line-height: 1.6; }
-      a  { color: var(--h2-color); }
+      a  { color: var(--h2-color); text-decoration: none; font-weight: bold; }
+      a:hover { text-decoration: underline; }
 
       .theme-toggle-btn {
         padding: 10px 15px;
@@ -70,6 +76,35 @@
         border: 1px solid var(--h2-color);
       }
 
+      /* Generator Styling */
+      .generator-box {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        margin: 20px 0;
+      }
+      .generator-text {
+        font-size: 1.1rem;
+        font-style: italic;
+        margin-bottom: 15px;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .gen-btn {
+        background-color: var(--btn-bg);
+        color: var(--btn-text);
+        border: 2px solid var(--btn-bg);
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.2s;
+      }
+
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -85,27 +120,34 @@
   <body>
     <button class="theme-toggle-btn" id="themeToggle">Dark Mode</button>
     
-    <h1>Hi, I'm Tawsif Razzaki!</h1>
+    <h1>Hi, I'm [Tawsif Razzaki]!</h1>
 
-   
+    
     <div class="countdown-container" id="countdown">Loading countdown...</div>
  
     <h2>About Me</h2>
-    <p>I am from New york city. My favorite color is black.</p>
+    <p>I am from New York City. My favorite color is black.</p>
  
     <h2>My Interests</h2>
-    <p>I like the gym,sports, and hanging out with my friends.</p>
- 
+    <p>I like the gym, sports, and hanging out with my friends.</p>
+
+    
+    <h2>Did You Know?</h2>
+    <div class="generator-box">
+      <p class="generator-text" id="factDisplay">Click the button below to generate a cool fact!</p>
+      <button class="gen-btn" id="factBtn">Next Fact 🎲</button>
+    </div>
+
     <h2>My Goals for This Course</h2>
-    <p>I want to learn how to build a website using ai as an assistance.</p>
+    <p>I want to learn how to build a website using AI as an assistance.</p>
  
     <h2>My GitHub</h2>
     <p>Check out my projects: 
-      <a href= https://studio.code.org/projects/applab/d648c54c-8b3f-40ef-89c1-0f1961fd8b05>APP LINK</a>
+      <a href="https://github.com[Thegoat214]">Thegoat214</a>
     </p>
 
     <script>
-    
+      
       const toggleBtn = document.getElementById('themeToggle');
       toggleBtn.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -139,6 +181,24 @@
           countdownEl.textContent = `⏳ Countdown to June 18: ${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
       }, 1000);
+
+      
+      const facts = [
+        "New York City has more than 800 spoken languages, making it the most linguistically diverse city in the world!",
+        "Regular gym exercise and weightlifting can improve your memory, focus, and overall brain health.",
+        "The first subway line in New York City opened in 1904, and a ticket cost just 5 cents.",
+        "Listening to music while working out can increase your gym performance and endurance by up to 15%.",
+        "Honest and close friendships can lengthen your lifespan and lower your stress levels over time.",
+        "Using AI tools while learning code can speed up debugging and build your programmatic problem-solving skills much faster!"
+      ];
+
+      const factBtn = document.getElementById('factBtn');
+      const factDisplay = document.getElementById('factDisplay');
+
+      factBtn.addEventListener('click', () => {
+        const randomIndex = Math.floor(Math.random() * facts.length);
+        factDisplay.textContent = facts[randomIndex];
+      });
     </script>
   </body>
 </html>
