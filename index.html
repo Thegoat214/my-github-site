@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tawsif Razzaki's Website</title>
     <style>
-      /* Light Mode */
+      /* Light Mode (Default Variables) */
       :root {
         --bg-color: #f5f5f5;
         --text-color: #333333;
@@ -13,6 +13,7 @@
         --h2-color: #2E75B6;
         --btn-bg: #1F4E79;
         --btn-text: #ffffff;
+        --timer-bg: #e2e8f0;
       }
 
       /* Dark Mode Variables */
@@ -23,6 +24,7 @@
         --h2-color: #64b5f6;
         --btn-bg: #ffffff;
         --btn-text: #121212;
+        --timer-bg: #1e1e1e;
       }
 
       body { 
@@ -34,7 +36,6 @@
         color: var(--text-color);
         transition: background 0.3s, color 0.3s;
       }
-      
       
       h1 { 
         color: var(--h1-color); 
@@ -58,6 +59,18 @@
         float: right; 
       }
 
+      /* Countdown Timer Styling */
+      .countdown-container {
+        background-color: var(--timer-bg);
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 20px 0;
+        border: 1px solid var(--h2-color);
+      }
+
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -73,7 +86,10 @@
   <body>
     <button class="theme-toggle-btn" id="themeToggle">Dark Mode</button>
     
-    <h1>Hi, I'm Tawsif Razzaki!</h1>
+    <h1>Hi, I'm [Tawsif Razzaki]!</h1>
+
+    <!-- Countdown Timer Container -->
+    <div class="countdown-container" id="countdown">Loading countdown...</div>
  
     <h2>About Me</h2>
     <p>I am from New york city. My favorite color is black.</p>
@@ -86,15 +102,14 @@
  
     <h2>My GitHub</h2>
     <p>Check out my projects: 
-      <a href="https://github.com/[Thegoat214]">Thegoat214</a>
+      <a href="https://github.com[Thegoat214]">Thegoat214</a>
     </p>
 
     <script>
+      // Theme Toggle Logic
       const toggleBtn = document.getElementById('themeToggle');
-      
       toggleBtn.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
-        
         if (currentTheme === 'dark') {
           document.documentElement.removeAttribute('data-theme');
           toggleBtn.textContent = 'Dark Mode';
@@ -103,6 +118,30 @@
           toggleBtn.textContent = 'Light Mode';
         }
       });
+
+      // Countdown Timer Logic
+      const targetDate = new Date("June 18, 2026 00:00:00").getTime();
+
+      const updateCountdown = setInterval(() => {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        // Math calculations for days, hours, minutes, and seconds
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        // Display the result in the countdown element
+        const countdownEl = document.getElementById("countdown");
+        
+        if (difference < 0) {
+          clearInterval(updateCountdown);
+          countdownEl.textContent = "The countdown has ended!";
+        } else {
+          countdownEl.textContent = `⏳ Countdown to June 18: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+      }, 1000);
     </script>
   </body>
 </html>
