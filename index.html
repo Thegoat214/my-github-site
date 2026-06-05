@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tawsif Razzaki's Website</title>
-    <style>
-      /* Light Mode (Default Variables) */
+    <style>    
       :root {
         --bg-color: #f5f5f5;
         --text-color: #333333;
@@ -16,7 +15,7 @@
         --timer-bg: #e2e8f0;
       }
 
-      /* Dark Mode Variables */
+      
       [data-theme="dark"] {
         --bg-color: #121212;
         --text-color: #e0e0e0;
@@ -59,7 +58,7 @@
         float: right; 
       }
 
-      /* Countdown Timer Styling */
+      
       .countdown-container {
         background-color: var(--timer-bg);
         padding: 15px;
@@ -88,7 +87,7 @@
     
     <h1>Hi, I'm Tawsif Razzaki!</h1>
 
-    <!-- Countdown Timer Container -->
+   
     <div class="countdown-container" id="countdown">Loading countdown...</div>
  
     <h2>About Me</h2>
@@ -102,11 +101,11 @@
  
     <h2>My GitHub</h2>
     <p>Check out my projects: 
-      <a href="https://github.com[Thegoat214]">Thegoat214</a>
+      <a href=https://studio.code.org/projects/applab/d648c54c-8b3f-40ef-89c1-0f1961fd8b05
     </p>
 
     <script>
-      // Theme Toggle Logic
+    
       const toggleBtn = document.getElementById('themeToggle');
       toggleBtn.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -119,20 +118,18 @@
         }
       });
 
-      // Countdown Timer Logic
+      
       const targetDate = new Date("June 18, 2026 00:00:00").getTime();
 
       const updateCountdown = setInterval(() => {
         const now = new Date().getTime();
         const difference = targetDate - now;
 
-        // Math calculations for days, hours, minutes, and seconds
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        // Display the result in the countdown element
         const countdownEl = document.getElementById("countdown");
         
         if (difference < 0) {
