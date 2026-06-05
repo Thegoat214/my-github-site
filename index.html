@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Tawsif Razzaki's Website</title>
+    <title>Tawsif Razzaki's Website</title>
     <style>
       /* Light Mode (Default Variables) */
       :root {
@@ -24,14 +24,24 @@
         --btn-bg: #ffffff;
         --btn-text: #121212;
       }
-      body { font-family: Arial, sans-serif; max-width: 800px;
-             margin: 0 auto; padding: 20px; background: #f5f5f5; }
-      h1   { color: #1F4E79; }
-      h2   { color: #2E75B6; border-bottom: 2px solid #2E75B6; }
-      p    { line-height: 1.6; }
-      a { color: var(--h2-color); }
 
-      /* Toggle Button Styles */
+      
+      body { 
+        font-family: Arial, sans-serif; 
+        max-width: 800px;
+        margin: 0 auto; 
+        padding: 20px; 
+        background: var(--bg-color); 
+        color: var(--text-color);
+        transition: background 0.3s, color 0.3s;
+      }
+      
+      h1 { color: var(--h1-color); }
+      h2 { color: var(--h2-color); border-bottom: 2px solid var(--h2-color); }
+      p  { line-height: 1.6; }
+      a  { color: var(--h2-color); }
+
+      
       .theme-toggle-btn {
         padding: 10px 15px;
         font-size: 14px;
@@ -41,15 +51,13 @@
         border: none;
         border-radius: 5px;
         font-weight: bold;
-        float: right; /* Places the button on the top right */
+        float: right; 
       }
     </style>
   </head>
   <body>
-    </style>
-  </head>
-  <body>
     <button class="theme-toggle-btn" id="themeToggle">Dark Mode</button>
+    
     <h1>Hi, I'm [Tawsif Razzaki]!</h1>
  
     <h2>About Me</h2>
@@ -65,22 +73,18 @@
     <p>Check out my projects: 
       <a href="https://github.com/[Thegoat214]">[Thegoat214]</a>
     </p>
-  </body>
-</html>
-<script>
+
+    <script>
       const toggleBtn = document.getElementById('themeToggle');
       
       toggleBtn.addEventListener('click', () => {
-        // Check current theme attribute
         const currentTheme = document.documentElement.getAttribute('data-theme');
         
         if (currentTheme === 'dark') {
-          // Switch to light mode
           document.documentElement.removeAttribute('data-theme');
           toggleBtn.textContent = 'Dark Mode';
         } else {
-          // Switch to dark mode
-          document.documentElement.setAttribute('data-theme', 'Light Mode');
+          document.documentElement.setAttribute('data-theme', 'dark');
           toggleBtn.textContent = 'Light Mode';
         }
       });
