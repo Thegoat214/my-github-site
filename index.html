@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tawsif Razzaki's Website</title>
     <style>
-      /* Light Mode (Default Variables) */
+      /* Light Mode */
       :root {
         --bg-color: #f5f5f5;
         --text-color: #333333;
@@ -25,7 +25,6 @@
         --btn-text: #121212;
       }
 
-      
       body { 
         font-family: Arial, sans-serif; 
         max-width: 800px;
@@ -36,12 +35,17 @@
         transition: background 0.3s, color 0.3s;
       }
       
-      h1 { color: var(--h1-color); }
+      
+      h1 { 
+        color: var(--h1-color); 
+        animation: fadeInUp 1s ease-out forwards;
+        opacity: 0;
+      }
+
       h2 { color: var(--h2-color); border-bottom: 2px solid var(--h2-color); }
       p  { line-height: 1.6; }
       a  { color: var(--h2-color); }
 
-      
       .theme-toggle-btn {
         padding: 10px 15px;
         font-size: 14px;
@@ -53,12 +57,23 @@
         font-weight: bold;
         float: right; 
       }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
   </head>
   <body>
     <button class="theme-toggle-btn" id="themeToggle">Dark Mode</button>
     
-    <h1>Hi, I'm [Tawsif Razzaki]!</h1>
+    <h1>Hi, I'm Tawsif Razzaki!</h1>
  
     <h2>About Me</h2>
     <p>I am from New york city. My favorite color is black.</p>
